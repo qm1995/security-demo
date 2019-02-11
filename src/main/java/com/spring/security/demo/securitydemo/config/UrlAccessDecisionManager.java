@@ -37,10 +37,12 @@ public class UrlAccessDecisionManager implements AccessDecisionManager {
             //当前请求需要的权限
             String needRole = ca.getAttribute();
             if ("ROLE_LOGIN".equals(needRole)) {
+                // 即匿名用户/未登录
                 if (authentication instanceof AnonymousAuthenticationToken) {
                     throw new BadCredentialsException("未登录");
-                } else
-                    return;
+                } else {// 登录但不具有此路径权限
+                    break;
+                }
             }
             //当前用户所具有的权限
             Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();

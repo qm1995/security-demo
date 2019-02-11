@@ -24,7 +24,7 @@ import java.util.List;
  * @create 2019/1/12 17:24
  * @desc
  **/
-@Component("userDetailServiceImpl")
+@Component
 public class UserDetailServiceImpl implements UserDetailsService {
 
     @Autowired

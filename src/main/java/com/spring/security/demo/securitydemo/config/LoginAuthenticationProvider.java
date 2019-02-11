@@ -32,9 +32,6 @@ public class LoginAuthenticationProvider implements AuthenticationProvider {
         // 获取表单用户填写的密码
         String password = (String) authentication.getCredentials();
 
-       /* BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        passwordEncoder.encode(password);*/
-
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
         String password1 = userDetails.getPassword();
